@@ -36,8 +36,21 @@ This project implements a **sentiment analysis model** for IMDB movie reviews us
 - Handles Shakespearean text (see `hamlet.txt` sample)
 
 ---
-
-# After training, use the model to predict sentiment
-sample_review = "This movie was fantastic! The acting was brilliant."
-prediction = model.predict(preprocess_text(sample_review))
-print("Positive" if prediction > 0.5 else "Negative")
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ embedding (Embedding)       (None, 13, 100)           481800    
+                                                                 
+ lstm (LSTM)                 (None, 13, 150)           150600    
+                                                                 
+ dropout (Dropout)           (None, 13, 150)           0         
+                                                                 
+ lstm_1 (LSTM)               (None, 100)               100400    
+                                                                 
+ dense (Dense)               (None, 4818)              486818    
+                                                                 
+=================================================================
+Total params: 1,219,618
+Trainable params: 1,219,618
+Non-trainable params: 0
